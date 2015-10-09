@@ -1,0 +1,3 @@
+# trabalhoIASistemaEspecialista
+java
+drools project
