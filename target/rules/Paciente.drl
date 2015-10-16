@@ -3,6 +3,15 @@ package com.sample
 import com.sample.Fato;
 import com.sample.Paciente;
 
+/*
+ * Expert System - What is My Disease? / Sistema Especialista - Qual a minha doenca?
+ *
+ * students:
+ * Lucas cordeiro da silva
+ * Gleyson
+ * Lucas Mengue
+ * Douglas
+ */
 
 /* AMIGDALITE
 	

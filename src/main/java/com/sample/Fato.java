@@ -1,5 +1,15 @@
 package com.sample;
 
+/*
+ * Expert System - What is My Disease? / Sistema Especialista - Qual a minha doenca?
+ *
+ * students:
+ * Lucas cordeiro da silva
+ * Gleyson
+ * Lucas Mengue
+ * Douglas
+ */
+
 public enum Fato {
 	
 	//ASMA

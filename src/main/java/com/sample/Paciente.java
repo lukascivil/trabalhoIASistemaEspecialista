@@ -3,13 +3,16 @@ package com.sample;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-/**
- * 
- * 
+/*
+ * Expert System - What is My Disease? / Sistema Especialista - Qual a minha doenca?
  *
+ * students:
+ * Lucas cordeiro da silva
+ * Gleyson
+ * Lucas Mengue
+ * Douglas
  */
+
 public class Paciente {
 	
 	private String nome;	
@@ -18,24 +21,6 @@ public class Paciente {
 	private Integer pontos = 0;
 	private double imc = 0;
 	private String sexo;
-	private Doenca doenca;
-	private Exame exame;
-
-	public Exame getExame() {
-		return exame;
-	}
-
-	public void setExame(Exame exame) {
-		this.exame = exame;
-	}
-
-	public Doenca getDoenca() {
-		return doenca;
-	}
-
-	public void setDoenca(Doenca doenca) {
-		this.doenca = doenca;
-	}
 
 	public String getSexo() {
 		return sexo;

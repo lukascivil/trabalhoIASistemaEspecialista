@@ -7,20 +7,27 @@ import org.kie.api.runtime.KieSession;
 import com.sample.Fato;
 import com.sample.Paciente;
 
-/**
- * This is a sample class to launch a rule.
+/*
+ * Expert System - What is My Disease? / Sistema Especialista - Qual a minha doenca?
+ *
+ * students:
+ * Lucas cordeiro da silva
+ * Gleyson
+ * Lucas Mengue
+ * Douglas
  */
+
 public class PacienteTest {
 
     public static final void main(String[] args) {
         try {
         	
-        	 // load up the knowledge base
+        	 // Load up the knowledge base / Carregando a base de conhecimento
 	        KieServices ks = KieServices.Factory.get();
     	    KieContainer kContainer = ks.getKieClasspathContainer();
         	KieSession kSession = kContainer.newKieSession("ksession-rules");
         	
-            //Cria os dados
+            //Load data / Carrega os dados
         	
         	//ASMA
             Paciente paciente1 = new Paciente("Gleyson");
@@ -40,15 +47,11 @@ public class PacienteTest {
                     
             kSession.insert(paciente2);
             
-            //Executa as regras
+            //Execute all rules / Executa todas as regras
             kSession.fireAllRules();
             
-            //logger.close();
         } catch (Throwable t) {
             t.printStackTrace();
         }
     }
-
-
-
 }
