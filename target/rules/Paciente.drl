@@ -1,0 +1,269 @@
+package com.sample
+ 
+import com.sample.Fato;
+import com.sample.Paciente;
+
+
+/* AMIGDALITE
+	
+	DOR_DE_GARGANTA
+	DOR_NO_CORPO
+	FEBRE
+	CANSACO
+	FALTA_DE_APETITE
+	DIFICULDADE_RESPIRATORIA
+	DOR_DE_CABECA
+	
+  ASMA
+	
+	TOSSE 
+	CATARRO
+	DIFICULDADE_RESPIRATORIA
+	DOR_PEITORAL
+	CHIADO_PEITORAL
+	
+  CATAPORA
+  
+  	FEBRE
+  	ERUPCOES_CUTANEAS
+  	
+  RUBEOLA
+  
+  	FEBRE
+  	AUMENTO_GANGLIOS_LINFATICOS
+  	ERUPCOES_CUTANEAS
+  	
+  SARAMPO
+  
+  	FEBRE
+  	TOSSE
+  	CORIZA
+  	CONJUNTIVITE
+  	FOTOFOBIA				
+		
+	
+*/
+
+
+/**
+* Regra 1
+*/
+
+/*
+rule "ASMA"
+    when
+        $p : Paciente( $fatos : fatos   ) and
+        exists (Fato( this == Fato.TOSSE) from $fatos) and
+        exists (Fato( this == Fato.CATARRO) from $fatos) and
+        exists (Fato( this == Fato.DIFICULDADE_RESPIRATORIA) from $fatos) and
+        exists (Fato( this == Fato.DOR_PEITORAL) from $fatos) and
+        exists (Fato( this == Fato.CHIADO_PEITORAL) from $fatos)
+    then
+    	System.out.println($p.getNome() + ", Voce esta com ASMA!");
+end
+
+/**
+* Regra 2
+
+rule "RUBEOLA"
+    when
+        $p : Paciente( $fatos : fatos   ) and
+        exists (Fato( this == Fato.FEBRE) from $fatos) and
+        exists (Fato( this == Fato.AUMENTO_GANGLIOS_LINFATICOS) from $fatos) and
+        exists (Fato( this == Fato.ERUPCOES_CUTANEAS) from $fatos)
+    then
+    	System.out.println($p.getNome() + ", Voce esta com RUBEOLA!");
+end
+*/
+
+rule "TOSSE"
+    when
+        $p : Paciente( $fatos : fatos   ) and
+        exists (Fato( this == Fato.TOSSE) from $fatos)
+    then
+    	//ADD.DOENCAS EX:PESOS RUBEOLA+1,ASMA+1 
+end
+
+rule "CATARRO"
+    when
+        $p : Paciente( $fatos : fatos   ) and
+        exists (Fato( this == Fato.CATARRO) from $fatos)
+    then
+        //ADD.DOENCAS EX:PESOS ASMA+1,CATAPORA+1
+end
+
+rule "DIFICULDADE_RESPIRATORIA"
+    when
+        $p : Paciente( $fatos : fatos   ) and
+        exists (Fato( this == Fato.DIFICULDADE_RESPIRATORIA) from $fatos)
+    then
+    	//ADD.DOENCAS EX:PESOS ASMA+1
+end
+
+/*rule "Paciente com Hipoglicemia grave 2"
+    when
+        $p : Paciente(glicemia < 40, $fatos : fatos   )
+        exists (Fato( this == Fato.CONSCIENTE) from $fatos) and
+        not (Fato( this == Fato.CONFUSO) from $fatos)
+    then
+    	System.out.println($p.getNome() + ", você esta com hipoglicemia grave!");
+        System.out.println("- Procurar ajuda e ir ao PA");
+        System.out.println("- Comunicando por email");
+        System.out.println("- Comunicando por telefone");
+        System.out.println("----------------------------------------");
+end
+
+/**
+* Regra 4
+*/
+/*rule "Paciente com Hipoglicemia grave 3"
+    when
+        $p : Paciente(glicemia < 40, $fatos : fatos   )
+        exists (Fato( this == Fato.CONVULSAO) from $fatos) and
+        not (Fato( this == Fato.CONSCIENTE) from $fatos)
+    then
+    	System.out.println($p.getNome() + ", você esta com hipoglicemia grave!");
+        System.out.println("- Chamar resgate");
+        System.out.println("- Proteger a lingua");
+        System.out.println("- Comunicando por email");
+        System.out.println("- Comunicando por telefone");
+        System.out.println("----------------------------------------");
+end
+
+/**
+* Regra 5
+*/
+/*rule "Paciente com Hipoglicemia grave 4"
+    when
+        $p : Paciente(glicemia < 40, $fatos : fatos   )
+        not (Fato( this == Fato.CONSCIENTE) from $fatos) and
+        not (Fato( this == Fato.CONVULSAO) from $fatos)
+    then
+    	System.out.println($p.getNome() + ", você esta com hipoglicemia grave!");
+        System.out.println("- Chamar resgate");
+        System.out.println("- Proteger a lingua");
+        System.out.println("- Comunicando por email");
+        System.out.println("- Comunicando por telefone");
+        System.out.println("----------------------------------------");
+end
+
+/**
+* Regra 6
+*/
+/*rule "Paciente com hipoglicemia moderado 1"
+    when
+    	$p : Paciente( $glicemia : glicemia , $glicemia >= 40, $glicemia <= 60, $fatos : fatos)
+        exists (Fato( this == Fato.CONSCIENTE) from $fatos) and
+        exists (Fato( this == Fato.CONFUSO) from $fatos)
+    then
+    	System.out.println($p.getNome() + ", você esta com hipoglicemia moderado!");
+        System.out.println("- Procurar ajuda e ir ao PA");
+        System.out.println("- Comunicando por email");
+        System.out.println("- Comunicando por telefone");
+        System.out.println("----------------------------------------");
+end
+
+/**
+* Regra 7
+*/
+/*rule "Paciente com hipoglicemia leve 1"
+    when
+    	$p : Paciente( $glicemia : glicemia , $glicemia >= 40, $glicemia <= 60, $fatos : fatos)
+        exists (Fato( this == Fato.CONSCIENTE) from $fatos) and
+        not (Fato( this == Fato.CONFUSO) from $fatos)
+    then
+    	System.out.println($p.getNome() + ", você esta com hipoglicemia leve!");
+        System.out.println("- Tomar líquido açucarado");
+        System.out.println("- Comunicando por email");
+        System.out.println("----------------------------------------");
+end
+
+/**
+* Regra 8
+*/
+/*rule "Paciente com hipoglicemia moderado 2"
+    when
+    	$p : Paciente( $glicemia : glicemia , $glicemia >= 40, $glicemia <= 60, $fatos : fatos)
+        not (Fato( this == Fato.CONSCIENTE) from $fatos) and
+        not (Fato( this == Fato.CONFUSO) from $fatos)
+    then
+    	System.out.println($p.getNome() + ", você esta com hipoglicemia moderado!");
+        System.out.println("- Procurar ajuda e ir ao PA");
+        System.out.println("- Comunicando por email");
+        System.out.println("- Comunicando por telefone");
+        System.out.println("----------------------------------------");
+end
+
+/**
+* Regra 9
+*/
+/*rule "Paciente com hiperglicemia e intercorrência 1"
+    when
+    	$p : Paciente( $glicemia : glicemia , $glicemia > 110, $glicemia <= 200, $fatos : fatos)
+        exists (Fato( this == Fato.CONSCIENTE) from $fatos) and
+        exists (Fato( this == Fato.INFECCAO) from $fatos)
+    then
+    	System.out.println($p.getNome() + ", você esta com hiperglicemia e intercorrência!");
+        System.out.println("- Marcar consulta presencial");
+        System.out.println("- Comunicando por email");
+        System.out.println("----------------------------------------");
+end
+
+/**
+* Regra 10
+*/
+/*rule "Paciente com hiperglicemia sem intercorrência 1"
+    when
+    	$p : Paciente( $glicemia : glicemia , $glicemia > 110, $glicemia <= 200, $fatos : fatos)
+        exists (Fato( this == Fato.CONSCIENTE) from $fatos) and
+        not (Fato( this == Fato.INFECCAO) from $fatos)
+    then
+    	System.out.println($p.getNome() + ", você esta com hiperglicemia sem intercorrência!");
+        System.out.println("- Reforçar para manter orientação");
+        System.out.println("----------------------------------------");
+end
+
+/**
+* Regra 11
+*/
+/*rule "Paciente com hiperglicemia e intercorrência 2"
+    when
+    	$p : Paciente( $glicemia : glicemia , $glicemia > 110, $glicemia <= 200, $fatos : fatos)
+        not (Fato( this == Fato.CONSCIENTE) from $fatos)
+    then
+    	System.out.println($p.getNome() + ", você esta com hiperglicemia e intercorrência!");
+        System.out.println("- Procurar ajuda e ir ao PA");
+        System.out.println("- Comunicando por email");
+        System.out.println("- Comunicando por telefone");
+        System.out.println("----------------------------------------");
+end
+
+/**
+* Regra 12
+*/
+/*rule "Paciente com hiperglicemia sem intercorrência 2"
+    when
+    	$p : Paciente( $glicemia : glicemia , $glicemia > 200, $fatos : fatos)
+        exists (Fato( this == Fato.CONSCIENTE) from $fatos)
+    then
+    	System.out.println($p.getNome() + ", você esta com hiperglicemia sem intercorrência!");
+		System.out.println("- Marcar consulta presencial");
+        System.out.println("- Comunicando por email");
+        System.out.println("----------------------------------------");
+end
+
+/**
+* Regra 13
+*/
+/*rule "Paciente com hiperglicemia e intercorrência 3"
+    when
+    	$p : Paciente( $glicemia : glicemia , $glicemia > 200, $fatos : fatos)
+        not (Fato( this == Fato.CONSCIENTE) from $fatos)
+    then
+    	System.out.println($p.getNome() + ", você esta com hiperglicemia e intercorrência!");
+        System.out.println("- Procurar ajuda e ir ao PA");
+        System.out.println("- Comunicando por email");
+        System.out.println("- Comunicando por telefone");
+        System.out.println("----------------------------------------");
+end
+*/
