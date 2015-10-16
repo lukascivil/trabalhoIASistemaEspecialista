@@ -4,6 +4,6 @@
 	<classpathentry kind="src" path="src/main/resources"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="DROOLS/Drools"/>
-	<classpathentry kind="lib" path="C:/Users/notelukas/Desktop/eclipse/slf4j-1.7.12/slf4j-1.7.12/slf4j-nop-1.7.12.jar"/>
+	<classpathentry kind="lib" path="C:/Users/notelukas/Desktop/eclipse-jee-mars-1-win32-x86_64/slf4j-1.7.12/slf4j-1.7.12/slf4j-nop-1.7.12.jar"/>
 	<classpathentry kind="output" path="target"/>
 </classpath>
