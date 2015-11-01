@@ -11,31 +11,24 @@ package com.sample;
  */
 
 public enum Fato {
-	
-	//ASMA
-	//RUBEOLA
-	//CATAPORA
-	//AMIGDALITE
-	//SARAMPO
-	TOSSE,
-	CATARRO,
-	DOR_PEITORAL,
-	CHIADO_PEITORAL,
-	DIFICULDADE_RESPIRATORIA,
-	FEBRE,
-	ERUPCOES_CUTANEAS,
-	DIARREIA,
-	DOR_DE_CABECA,
-	DOR_NAS_COSTAS,
-	ANEMIA,
-	DOR_NA_GARGANTA,
-	CORIZA,
-	CONJUNTIVITE,
-	FOTOFOBIA,
-	DOR_NO_CORPO,
-	CANSACO,
-	FALTA_DE_APETITE,
-	AUMENTO_GANGLIOS_LINFATICOS,
-	TOSSE_ROUCA;
-	
+    
+    AMIGDALAS_INCHADAS_E_VERMELHAS,
+    AUMENTO_GANGLIOS_LINFATICOS,      
+    CORIZA,                            
+    DELIRIO,                    
+    DIFICULDADE_DE_ENGOLIR,          
+    DIFICULDADE_DE_RESPIRAR,             
+    DOR_DE_CABECA,                  
+    DOR_DE_GARGANTA,         
+    DOR_NO_CORPO,  
+    FEBRE,
+    FOTOFOBIA,                           
+    FRAQUEZA,                          
+    IRRITAÇAO_OCULAR,                    
+    MANCHAS_E_ERUPCOES_NA_PELE,  
+    SONOLENCIA,             
+    TOSSE,
+    VOMITO,                 
+    VOZ_ROUCA;                    
+    
 }

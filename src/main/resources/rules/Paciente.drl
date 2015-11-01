@@ -13,266 +13,164 @@ import com.sample.Paciente;
  * Douglas
  */
 
-/* AMIGDALITE
-	
-	DOR_DE_GARGANTA
-	DOR_NO_CORPO
-	FEBRE
-	CANSACO
-	FALTA_DE_APETITE
-	DIFICULDADE_RESPIRATORIA
-	DOR_DE_CABECA
-	
-  ASMA
-	
-	TOSSE 
-	CATARRO
-	DIFICULDADE_RESPIRATORIA
-	DOR_PEITORAL
-	CHIADO_PEITORAL
-	
-  CATAPORA
-  
-  	FEBRE
-  	ERUPCOES_CUTANEAS
-  	
-  RUBEOLA
-  
-  	FEBRE
-  	AUMENTO_GANGLIOS_LINFATICOS
-  	ERUPCOES_CUTANEAS
-  	
-  SARAMPO
-  
-  	FEBRE
-  	TOSSE
-  	CORIZA
-  	CONJUNTIVITE
-  	FOTOFOBIA				
-		
-	
-*/
-
-
-/**
-* Regra 1
-*/
-
-/*
-rule "ASMA"
+rule "CORIZA"
     when
         $p : Paciente( $fatos : fatos   ) and
-        exists (Fato( this == Fato.TOSSE) from $fatos) and
-        exists (Fato( this == Fato.CATARRO) from $fatos) and
-        exists (Fato( this == Fato.DIFICULDADE_RESPIRATORIA) from $fatos) and
-        exists (Fato( this == Fato.DOR_PEITORAL) from $fatos) and
-        exists (Fato( this == Fato.CHIADO_PEITORAL) from $fatos)
+        exists (Fato( this == Fato.CORIZA) from $fatos)
     then
-    	System.out.println($p.getNome() + ", Voce esta com ASMA!");
+        $p.addPesoDoencas("PNEUMONIA",20);
+        $p.addPesoDoencas("RUBEOLA",10);
+        $p.addPesoDoencas("SARAMPO",10);
 end
 
-/**
-* Regra 2
-
-rule "RUBEOLA"
+rule "DELIRIO"
     when
         $p : Paciente( $fatos : fatos   ) and
-        exists (Fato( this == Fato.FEBRE) from $fatos) and
-        exists (Fato( this == Fato.AUMENTO_GANGLIOS_LINFATICOS) from $fatos) and
-        exists (Fato( this == Fato.ERUPCOES_CUTANEAS) from $fatos)
+        exists (Fato( this == Fato.DELIRIO) from $fatos)
     then
-    	System.out.println($p.getNome() + ", Voce esta com RUBEOLA!");
+        $p.addPesoDoencas("MALARIA",30); 
 end
-*/
+
+rule "DIFICULDADE_DE_ENGOLIR"
+    when
+        $p : Paciente( $fatos : fatos   ) and
+        exists (Fato( this == Fato.DIFICULDADE_DE_ENGOLIR) from $fatos)
+    then
+        $p.addPesoDoencas("AMIGDALITE",20);  
+end
+
+rule "AUMENTO_GANGLIOS_LINFATICOS"
+    when
+        $p : Paciente( $fatos : fatos   ) and
+        exists (Fato( this == Fato.AUMENTO_GANGLIOS_LINFATICOS) from $fatos)
+    then
+        $p.addPesoDoencas("RUBEOLA",10);
+end
+
+rule "AMIGDALAS_INCHADAS_E_VERMELHAS"
+    when
+        $p : Paciente( $fatos : fatos   ) and
+        exists (Fato( this == Fato.AMIGDALAS_INCHADAS_E_VERMELHAS) from $fatos)
+    then
+        $p.addPesoDoencas("AMIGDALITE",30);
+end
+
+rule "FEBRE"
+    when
+        $p : Paciente( $fatos : fatos   ) and
+        exists (Fato( this == Fato.FEBRE) from $fatos)
+    then
+        $p.addPesoDoencas("AMIGDALITE",10);
+        $p.addPesoDoencas("DENGUE",20);
+        $p.addPesoDoencas("PNEUMONIA",10); 
+        $p.addPesoDoencas("MALARIA",10);
+        $p.addPesoDoencas("SARAMPO",10);
+        $p.addPesoDoencas("RUBEOLA",10);
+end
+
+rule "DIFICULDADE_DE_RESPIRAR"
+    when
+        $p : Paciente( $fatos : fatos   ) and
+        exists (Fato( this == Fato.DIFICULDADE_DE_RESPIRAR) from $fatos)
+    then
+        $p.addPesoDoencas("PNEUMONIA",30);
+end
+
+rule "DOR_DE_CABECA"
+    when
+        $p : Paciente( $fatos : fatos   ) and
+        exists (Fato( this == Fato.DOR_DE_CABECA) from $fatos)
+    then
+        $p.addPesoDoencas("RUBEOLA",10);
+        $p.addPesoDoencas("MALARIA",20); 
+        $p.addPesoDoencas("AMIGDALITE",10);
+        $p.addPesoDoencas("DENGUE",10);
+end
+
+rule "DOR_DE_GARGANTA"
+    when
+        $p : Paciente( $fatos : fatos   ) and
+        exists (Fato( this == Fato.DOR_DE_GARGANTA) from $fatos)
+    then
+        $p.addPesoDoencas("AMIGDALITE",20);
+end
+
+
+rule "DOR_NO_CORPO"
+    when
+        $p : Paciente( $fatos : fatos   ) and
+        exists (Fato( this == Fato.DOR_NO_CORPO) from $fatos)
+    then
+        $p.addPesoDoencas("RUBEOLA",20); 
+        $p.addPesoDoencas("MALARIA",10);
+        $p.addPesoDoencas("PNEUMONIA",10);
+end
+
+rule "FOTOFOBIA"
+    when
+        $p : Paciente( $fatos : fatos   ) and
+        exists (Fato( this == Fato.FOTOFOBIA) from $fatos)
+    then
+        $p.addPesoDoencas("SARAMPO",10);
+end
+
+rule "FRAQUEZA"
+    when
+        $p : Paciente( $fatos : fatos   ) and
+        exists (Fato( this == Fato.FRAQUEZA) from $fatos)
+    then
+        $p.addPesoDoencas("PNEUMONIA",10);
+        $p.addPesoDoencas("DENGUE",10);
+end
+
+rule "IRRITA�AO_OCULAR"
+    when
+        $p : Paciente( $fatos : fatos   ) and
+        exists (Fato( this == Fato.IRRITA�AO_OCULAR) from $fatos)
+    then
+        $p.addPesoDoencas("SARAMPO",20);
+end
+
+rule "MANCHAS_E_ERUPCOES_NA_PELE"
+    when
+        $p : Paciente( $fatos : fatos   ) and
+        exists (Fato( this == Fato.MANCHAS_E_ERUPCOES_NA_PELE) from $fatos)
+    then
+        $p.addPesoDoencas("RUBEOLA",20);
+        $p.addPesoDoencas("SARAMPO",30);
+        $p.addPesoDoencas("DENGUE",20);
+end
+
+rule "SONOLENCIA"
+    when
+        $p : Paciente( $fatos : fatos   ) and
+        exists (Fato( this == Fato.SONOLENCIA) from $fatos)
+    then
+        $p.addPesoDoencas("MALARIA",20);
+end
 
 rule "TOSSE"
     when
         $p : Paciente( $fatos : fatos   ) and
         exists (Fato( this == Fato.TOSSE) from $fatos)
     then
-    	//ADD.DOENCAS EX:PESOS RUBEOLA+1,ASMA+1 
+        $p.addPesoDoencas("SARAMPO",20);
+        $p.addPesoDoencas("PNEUMONIA",20);
 end
 
-rule "CATARRO"
+rule "VOMITO"
     when
         $p : Paciente( $fatos : fatos   ) and
-        exists (Fato( this == Fato.CATARRO) from $fatos)
+        exists (Fato( this == Fato.VOMITO) from $fatos)
     then
-        //ADD.DOENCAS EX:PESOS ASMA+1,CATAPORA+1
+        $p.addPesoDoencas("MALARIA",10);
+        $p.addPesoDoencas("DENGUE",10);
 end
 
-rule "DIFICULDADE_RESPIRATORIA"
+rule "VOZ_ROUCA"
     when
         $p : Paciente( $fatos : fatos   ) and
-        exists (Fato( this == Fato.DIFICULDADE_RESPIRATORIA) from $fatos)
+        exists (Fato( this == Fato.VOZ_ROUCA) from $fatos)
     then
-    	//ADD.DOENCAS EX:PESOS ASMA+1
+        $p.addPesoDoencas("AMIGDALITE",10);
 end
-
-/*rule "Paciente com Hipoglicemia grave 2"
-    when
-        $p : Paciente(glicemia < 40, $fatos : fatos   )
-        exists (Fato( this == Fato.CONSCIENTE) from $fatos) and
-        not (Fato( this == Fato.CONFUSO) from $fatos)
-    then
-    	System.out.println($p.getNome() + ", você esta com hipoglicemia grave!");
-        System.out.println("- Procurar ajuda e ir ao PA");
-        System.out.println("- Comunicando por email");
-        System.out.println("- Comunicando por telefone");
-        System.out.println("----------------------------------------");
-end
-
-/**
-* Regra 4
-*/
-/*rule "Paciente com Hipoglicemia grave 3"
-    when
-        $p : Paciente(glicemia < 40, $fatos : fatos   )
-        exists (Fato( this == Fato.CONVULSAO) from $fatos) and
-        not (Fato( this == Fato.CONSCIENTE) from $fatos)
-    then
-    	System.out.println($p.getNome() + ", você esta com hipoglicemia grave!");
-        System.out.println("- Chamar resgate");
-        System.out.println("- Proteger a lingua");
-        System.out.println("- Comunicando por email");
-        System.out.println("- Comunicando por telefone");
-        System.out.println("----------------------------------------");
-end
-
-/**
-* Regra 5
-*/
-/*rule "Paciente com Hipoglicemia grave 4"
-    when
-        $p : Paciente(glicemia < 40, $fatos : fatos   )
-        not (Fato( this == Fato.CONSCIENTE) from $fatos) and
-        not (Fato( this == Fato.CONVULSAO) from $fatos)
-    then
-    	System.out.println($p.getNome() + ", você esta com hipoglicemia grave!");
-        System.out.println("- Chamar resgate");
-        System.out.println("- Proteger a lingua");
-        System.out.println("- Comunicando por email");
-        System.out.println("- Comunicando por telefone");
-        System.out.println("----------------------------------------");
-end
-
-/**
-* Regra 6
-*/
-/*rule "Paciente com hipoglicemia moderado 1"
-    when
-    	$p : Paciente( $glicemia : glicemia , $glicemia >= 40, $glicemia <= 60, $fatos : fatos)
-        exists (Fato( this == Fato.CONSCIENTE) from $fatos) and
-        exists (Fato( this == Fato.CONFUSO) from $fatos)
-    then
-    	System.out.println($p.getNome() + ", você esta com hipoglicemia moderado!");
-        System.out.println("- Procurar ajuda e ir ao PA");
-        System.out.println("- Comunicando por email");
-        System.out.println("- Comunicando por telefone");
-        System.out.println("----------------------------------------");
-end
-
-/**
-* Regra 7
-*/
-/*rule "Paciente com hipoglicemia leve 1"
-    when
-    	$p : Paciente( $glicemia : glicemia , $glicemia >= 40, $glicemia <= 60, $fatos : fatos)
-        exists (Fato( this == Fato.CONSCIENTE) from $fatos) and
-        not (Fato( this == Fato.CONFUSO) from $fatos)
-    then
-    	System.out.println($p.getNome() + ", você esta com hipoglicemia leve!");
-        System.out.println("- Tomar líquido açucarado");
-        System.out.println("- Comunicando por email");
-        System.out.println("----------------------------------------");
-end
-
-/**
-* Regra 8
-*/
-/*rule "Paciente com hipoglicemia moderado 2"
-    when
-    	$p : Paciente( $glicemia : glicemia , $glicemia >= 40, $glicemia <= 60, $fatos : fatos)
-        not (Fato( this == Fato.CONSCIENTE) from $fatos) and
-        not (Fato( this == Fato.CONFUSO) from $fatos)
-    then
-    	System.out.println($p.getNome() + ", você esta com hipoglicemia moderado!");
-        System.out.println("- Procurar ajuda e ir ao PA");
-        System.out.println("- Comunicando por email");
-        System.out.println("- Comunicando por telefone");
-        System.out.println("----------------------------------------");
-end
-
-/**
-* Regra 9
-*/
-/*rule "Paciente com hiperglicemia e intercorrência 1"
-    when
-    	$p : Paciente( $glicemia : glicemia , $glicemia > 110, $glicemia <= 200, $fatos : fatos)
-        exists (Fato( this == Fato.CONSCIENTE) from $fatos) and
-        exists (Fato( this == Fato.INFECCAO) from $fatos)
-    then
-    	System.out.println($p.getNome() + ", você esta com hiperglicemia e intercorrência!");
-        System.out.println("- Marcar consulta presencial");
-        System.out.println("- Comunicando por email");
-        System.out.println("----------------------------------------");
-end
-
-/**
-* Regra 10
-*/
-/*rule "Paciente com hiperglicemia sem intercorrência 1"
-    when
-    	$p : Paciente( $glicemia : glicemia , $glicemia > 110, $glicemia <= 200, $fatos : fatos)
-        exists (Fato( this == Fato.CONSCIENTE) from $fatos) and
-        not (Fato( this == Fato.INFECCAO) from $fatos)
-    then
-    	System.out.println($p.getNome() + ", você esta com hiperglicemia sem intercorrência!");
-        System.out.println("- Reforçar para manter orientação");
-        System.out.println("----------------------------------------");
-end
-
-/**
-* Regra 11
-*/
-/*rule "Paciente com hiperglicemia e intercorrência 2"
-    when
-    	$p : Paciente( $glicemia : glicemia , $glicemia > 110, $glicemia <= 200, $fatos : fatos)
-        not (Fato( this == Fato.CONSCIENTE) from $fatos)
-    then
-    	System.out.println($p.getNome() + ", você esta com hiperglicemia e intercorrência!");
-        System.out.println("- Procurar ajuda e ir ao PA");
-        System.out.println("- Comunicando por email");
-        System.out.println("- Comunicando por telefone");
-        System.out.println("----------------------------------------");
-end
-
-/**
-* Regra 12
-*/
-/*rule "Paciente com hiperglicemia sem intercorrência 2"
-    when
-    	$p : Paciente( $glicemia : glicemia , $glicemia > 200, $fatos : fatos)
-        exists (Fato( this == Fato.CONSCIENTE) from $fatos)
-    then
-    	System.out.println($p.getNome() + ", você esta com hiperglicemia sem intercorrência!");
-		System.out.println("- Marcar consulta presencial");
-        System.out.println("- Comunicando por email");
-        System.out.println("----------------------------------------");
-end
-
-/**
-* Regra 13
-*/
-/*rule "Paciente com hiperglicemia e intercorrência 3"
-    when
-    	$p : Paciente( $glicemia : glicemia , $glicemia > 200, $fatos : fatos)
-        not (Fato( this == Fato.CONSCIENTE) from $fatos)
-    then
-    	System.out.println($p.getNome() + ", você esta com hiperglicemia e intercorrência!");
-        System.out.println("- Procurar ajuda e ir ao PA");
-        System.out.println("- Comunicando por email");
-        System.out.println("- Comunicando por telefone");
-        System.out.println("----------------------------------------");
-end
-*/
