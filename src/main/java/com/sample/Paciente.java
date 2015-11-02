@@ -60,7 +60,6 @@ public class Paciente {
     	
 	    for (String key : doencas.keySet()) {
 	        Integer value2 = doencas.get(key);
-	        System.out.println(key + " = " + value2 + "%");
 	        doencasquetenho.put(key, value2);
 	    }
 	    return doencasquetenho;

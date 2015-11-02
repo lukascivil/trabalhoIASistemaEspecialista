@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
@@ -21,6 +22,7 @@ import java.awt.Canvas;
 import java.awt.Color;
 import javax.swing.SwingConstants;
 
+import org.eclipse.jdt.internal.compiler.batch.Main;
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
@@ -68,7 +70,7 @@ public class index {
         KieSession kSession = kContainer.newKieSession("ksession-rules");
         
 		frame = new JFrame();
-		frame.setBounds(100, 100, 616, 382);
+		frame.setBounds(100, 100, 658, 382);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -91,23 +93,23 @@ public class index {
 		frame.getContentPane().add(Delirio);
 		
 		JCheckBox Dificuldade_de_Engolir = new JCheckBox("Dificuldade de engolir");
-		Dificuldade_de_Engolir.setBounds(135, 146, 142, 23);
+		Dificuldade_de_Engolir.setBounds(145, 146, 165, 23);
 		frame.getContentPane().add(Dificuldade_de_Engolir);
 		
 		JCheckBox Dificuldade_de_Respirar = new JCheckBox("Dificuldade de Respirar");
-		Dificuldade_de_Respirar.setBounds(135, 172, 142, 23);
+		Dificuldade_de_Respirar.setBounds(145, 172, 165, 23);
 		frame.getContentPane().add(Dificuldade_de_Respirar);
 		
 		JCheckBox Dor_De_Cabeca = new JCheckBox("Dor de cabe\u00E7a");
-		Dor_De_Cabeca.setBounds(136, 198, 97, 23);
+		Dor_De_Cabeca.setBounds(145, 198, 165, 23);
 		frame.getContentPane().add(Dor_De_Cabeca);
 		
 		JCheckBox Dor_De_Garganta = new JCheckBox("Dor de garganta");
-		Dor_De_Garganta.setBounds(135, 224, 141, 23);
+		Dor_De_Garganta.setBounds(146, 224, 164, 23);
 		frame.getContentPane().add(Dor_De_Garganta);
 		
 		JCheckBox Dor_No_Corpo = new JCheckBox("Dor no corpo");
-		Dor_No_Corpo.setBounds(135, 250, 97, 23);
+		Dor_No_Corpo.setBounds(145, 250, 165, 23);
 		frame.getContentPane().add(Dor_No_Corpo);
 		
 		JCheckBox Febre = new JCheckBox("Febre");
@@ -115,23 +117,23 @@ public class index {
 		frame.getContentPane().add(Febre);
 		
 		JCheckBox Fotofobia = new JCheckBox("Fotofobia");
-		Fotofobia.setBounds(294, 146, 97, 23);
+		Fotofobia.setBounds(312, 146, 153, 23);
 		frame.getContentPane().add(Fotofobia);
 		
 		JCheckBox Fraqueza = new JCheckBox("Fraquesa");
-		Fraqueza.setBounds(294, 172, 97, 23);
+		Fraqueza.setBounds(312, 172, 153, 23);
 		frame.getContentPane().add(Fraqueza);
 		
 		JCheckBox Irritacao_Ocular = new JCheckBox("Irrita\u00E7\u00E3o ocular");
-		Irritacao_Ocular.setBounds(294, 198, 115, 23);
+		Irritacao_Ocular.setBounds(312, 198, 153, 23);
 		frame.getContentPane().add(Irritacao_Ocular);
 		
 		JCheckBox Manchas_Na_Pele = new JCheckBox("Manchas na Pele");
-		Manchas_Na_Pele.setBounds(294, 224, 115, 23);
+		Manchas_Na_Pele.setBounds(312, 224, 153, 23);
 		frame.getContentPane().add(Manchas_Na_Pele);
 		
 		JCheckBox Sonolencia = new JCheckBox("Sonolencia");
-		Sonolencia.setBounds(294, 250, 97, 23);
+		Sonolencia.setBounds(312, 250, 153, 23);
 		frame.getContentPane().add(Sonolencia);
 		
 		JCheckBox Tosse = new JCheckBox("Tosse");
@@ -139,11 +141,11 @@ public class index {
 		frame.getContentPane().add(Tosse);
 		
 		JCheckBox Vomito = new JCheckBox("Vomito");
-		Vomito.setBounds(294, 276, 97, 23);
+		Vomito.setBounds(312, 276, 153, 23);
 		frame.getContentPane().add(Vomito);
 		
 		JCheckBox Voz_Rouca = new JCheckBox("Voz Rouca");
-		Voz_Rouca.setBounds(135, 276, 97, 23);
+		Voz_Rouca.setBounds(145, 276, 165, 23);
 		frame.getContentPane().add(Voz_Rouca);
 		
 		/*----------------------------------------------------------------------------------*/
@@ -162,31 +164,36 @@ public class index {
 		
 		/*Relatório de Processamento--------------------------------------------------------*/
 		JTextArea textArea = new JTextArea();
-		textArea.setBounds(437, 75, 153, 224);
+		textArea.setBounds(471, 75, 165, 224);
 		frame.getContentPane().add(textArea);
 		
 		JLabel lblRelatrioDeProcessamento = new JLabel("Relat\u00F3rio de Processamento");
-		lblRelatrioDeProcessamento.setBounds(437, 40, 153, 24);
+		lblRelatrioDeProcessamento.setBounds(471, 47, 175, 24);
 		frame.getContentPane().add(lblRelatrioDeProcessamento);
 		/*----------------------------------------------------------------------------------*/
 		
 		/*Imagem----------------------------------------------------------------------------*/
+		//File f = new File(System.getProperty("user.dir")+"/img/no_photo_peq.png");
+		//System.out.println(f.exists());
 		BufferedImage img = null;
 		try {
-		    img = ImageIO.read(new File("C:\\Users\\notelukas\\Desktop\\eclipse-jee-mars-1-win32-x86_64\\workspace\\trabalhoIASistemaEspecialista\\target\\no_photo_peq.png"));
+			//this.getClass().getResource("/images/bell-icon16.png")
+			img = ImageIO.read(new URL("http://dev.theraray.com/wp-content/uploads/2015/06/doctor-tools-clipart-doctor8-e1433356252716.png"));
+		    //img = ImageIO.read(new File("C:\\Users\\notelukas\\Desktop\\eclipse-jee-mars-1-win32-x86_64\\workspace\\trabalhoIASistemaEspecialista\\target\\no_photo_peq.png"));
+		    
+		    Image dimg = img.getScaledInstance(75, 80, Image.SCALE_SMOOTH);
+			ImageIcon imageIcon = new ImageIcon(dimg);
+			
+			JLabel label = new JLabel("",JLabel.CENTER);
+
+
+			label.setIcon(imageIcon);
+			label.setBounds(6, 28, 97, 79);
+			frame.getContentPane().add(label);
 		} catch (IOException e) {
 		    e.printStackTrace();
 		}
 		
-		Image dimg = img.getScaledInstance(75, 90, Image.SCALE_SMOOTH);
-		ImageIcon imageIcon = new ImageIcon(dimg);
-		
-		JLabel label = new JLabel("",JLabel.CENTER);
-
-
-		label.setIcon(imageIcon);
-		label.setBounds(6, 28, 81, 79);
-		frame.getContentPane().add(label);
 		/*----------------------------------------------------------------------------------*/
 		
 		/*Botão de confirmar ---------------------------------------------------------------*/
@@ -226,7 +233,9 @@ public class index {
 		            String texto = "";
 		            for (String key : paciente1.getDoencasHash().keySet()) {
 		            	Integer value2 = paciente1.getDoencasHash().get(key);
-		            	texto+=key + " = " + value2 + "%"+"\n";
+		            	if(value2 > 0){
+		            		texto+=key + " = " + value2 + "%"+"\n";
+		            	}
 		            }
 		            
 		            textArea.setText(texto);
@@ -238,7 +247,7 @@ public class index {
 		        }
 			}
 		});
-		Confirmar.setBounds(501, 310, 89, 23);
+		Confirmar.setBounds(517, 310, 113, 23);
 		frame.getContentPane().add(Confirmar);
 		
 		/*---------------------------------------------------------------------------------*/

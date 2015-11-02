@@ -44,7 +44,7 @@ rule "AUMENTO_GANGLIOS_LINFATICOS"
         $p : Paciente( $fatos : fatos   ) and
         exists (Fato( this == Fato.AUMENTO_GANGLIOS_LINFATICOS) from $fatos)
     then
-        $p.addPesoDoencas("RUBEOLA",10);
+        $p.addPesoDoencas("RUBEOLA",30);
 end
 
 rule "AMIGDALAS_INCHADAS_E_VERMELHAS"
@@ -81,10 +81,10 @@ rule "DOR_DE_CABECA"
         $p : Paciente( $fatos : fatos   ) and
         exists (Fato( this == Fato.DOR_DE_CABECA) from $fatos)
     then
-        $p.addPesoDoencas("RUBEOLA",10);
-        $p.addPesoDoencas("MALARIA",20); 
-        $p.addPesoDoencas("AMIGDALITE",10);
-        $p.addPesoDoencas("DENGUE",10);
+    	$p.addPesoDoencas("AMIGDALITE",10);
+    	$p.addPesoDoencas("DENGUE",10);
+    	$p.addPesoDoencas("MALARIA",20); 
+        $p.addPesoDoencas("RUBEOLA",10);  
 end
 
 rule "DOR_DE_GARGANTA"
@@ -101,9 +101,11 @@ rule "DOR_NO_CORPO"
         $p : Paciente( $fatos : fatos   ) and
         exists (Fato( this == Fato.DOR_NO_CORPO) from $fatos)
     then
-        $p.addPesoDoencas("RUBEOLA",20); 
-        $p.addPesoDoencas("MALARIA",10);
+    	$p.addPesoDoencas("DENGUE",20);
         $p.addPesoDoencas("PNEUMONIA",10);
+        $p.addPesoDoencas("MALARIA",10);
+        $p.addPesoDoencas("RUBEOLA",20); 
+        
 end
 
 rule "FOTOFOBIA"
@@ -120,7 +122,7 @@ rule "FRAQUEZA"
         exists (Fato( this == Fato.FRAQUEZA) from $fatos)
     then
         $p.addPesoDoencas("PNEUMONIA",10);
-        $p.addPesoDoencas("DENGUE",10);
+        $p.addPesoDoencas("DENGUE",20);
 end
 
 rule "IRRITAÇAO_OCULAR"
@@ -136,9 +138,9 @@ rule "MANCHAS_E_ERUPCOES_NA_PELE"
         $p : Paciente( $fatos : fatos   ) and
         exists (Fato( this == Fato.MANCHAS_E_ERUPCOES_NA_PELE) from $fatos)
     then
-        $p.addPesoDoencas("RUBEOLA",20);
-        $p.addPesoDoencas("SARAMPO",30);
         $p.addPesoDoencas("DENGUE",20);
+        $p.addPesoDoencas("SARAMPO",30);
+        $p.addPesoDoencas("RUBEOLA",20);
 end
 
 rule "SONOLENCIA"
