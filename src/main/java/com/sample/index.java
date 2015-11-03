@@ -77,11 +77,11 @@ public class index {
 		
 		/*Sintomas---------------------------------------------------------------------------*/
 		JCheckBox Amigdalas_inchadas = new JCheckBox("Amigdalas inchadas");
-		Amigdalas_inchadas.setBounds(6, 172, 127, 23);
+		Amigdalas_inchadas.setBounds(6, 172, 147, 23);
 		frame.getContentPane().add(Amigdalas_inchadas);
 		
 		JCheckBox Aumento_Ganglios = new JCheckBox("Aumento Ganglios");
-		Aumento_Ganglios.setBounds(6, 198, 115, 23);
+		Aumento_Ganglios.setBounds(6, 198, 147, 23);
 		frame.getContentPane().add(Aumento_Ganglios);
 		
 		JCheckBox Corisa = new JCheckBox("Corisa");
@@ -93,23 +93,23 @@ public class index {
 		frame.getContentPane().add(Delirio);
 		
 		JCheckBox Dificuldade_de_Engolir = new JCheckBox("Dificuldade de engolir");
-		Dificuldade_de_Engolir.setBounds(145, 146, 165, 23);
+		Dificuldade_de_Engolir.setBounds(155, 146, 165, 23);
 		frame.getContentPane().add(Dificuldade_de_Engolir);
 		
 		JCheckBox Dificuldade_de_Respirar = new JCheckBox("Dificuldade de Respirar");
-		Dificuldade_de_Respirar.setBounds(145, 172, 165, 23);
+		Dificuldade_de_Respirar.setBounds(155, 172, 165, 23);
 		frame.getContentPane().add(Dificuldade_de_Respirar);
 		
 		JCheckBox Dor_De_Cabeca = new JCheckBox("Dor de cabe\u00E7a");
-		Dor_De_Cabeca.setBounds(145, 198, 165, 23);
+		Dor_De_Cabeca.setBounds(155, 198, 165, 23);
 		frame.getContentPane().add(Dor_De_Cabeca);
 		
 		JCheckBox Dor_De_Garganta = new JCheckBox("Dor de garganta");
-		Dor_De_Garganta.setBounds(146, 224, 164, 23);
+		Dor_De_Garganta.setBounds(155, 224, 164, 23);
 		frame.getContentPane().add(Dor_De_Garganta);
 		
 		JCheckBox Dor_No_Corpo = new JCheckBox("Dor no corpo");
-		Dor_No_Corpo.setBounds(145, 250, 165, 23);
+		Dor_No_Corpo.setBounds(155, 250, 165, 23);
 		frame.getContentPane().add(Dor_No_Corpo);
 		
 		JCheckBox Febre = new JCheckBox("Febre");
@@ -117,23 +117,23 @@ public class index {
 		frame.getContentPane().add(Febre);
 		
 		JCheckBox Fotofobia = new JCheckBox("Fotofobia");
-		Fotofobia.setBounds(312, 146, 153, 23);
+		Fotofobia.setBounds(325, 146, 140, 23);
 		frame.getContentPane().add(Fotofobia);
 		
 		JCheckBox Fraqueza = new JCheckBox("Fraquesa");
-		Fraqueza.setBounds(312, 172, 153, 23);
+		Fraqueza.setBounds(325, 172, 140, 23);
 		frame.getContentPane().add(Fraqueza);
 		
 		JCheckBox Irritacao_Ocular = new JCheckBox("Irrita\u00E7\u00E3o ocular");
-		Irritacao_Ocular.setBounds(312, 198, 153, 23);
+		Irritacao_Ocular.setBounds(325, 198, 140, 23);
 		frame.getContentPane().add(Irritacao_Ocular);
 		
 		JCheckBox Manchas_Na_Pele = new JCheckBox("Manchas na Pele");
-		Manchas_Na_Pele.setBounds(312, 224, 153, 23);
+		Manchas_Na_Pele.setBounds(325, 224, 140, 23);
 		frame.getContentPane().add(Manchas_Na_Pele);
 		
 		JCheckBox Sonolencia = new JCheckBox("Sonolencia");
-		Sonolencia.setBounds(312, 250, 153, 23);
+		Sonolencia.setBounds(325, 250, 140, 23);
 		frame.getContentPane().add(Sonolencia);
 		
 		JCheckBox Tosse = new JCheckBox("Tosse");
@@ -141,11 +141,11 @@ public class index {
 		frame.getContentPane().add(Tosse);
 		
 		JCheckBox Vomito = new JCheckBox("Vomito");
-		Vomito.setBounds(312, 276, 153, 23);
+		Vomito.setBounds(325, 276, 140, 23);
 		frame.getContentPane().add(Vomito);
 		
 		JCheckBox Voz_Rouca = new JCheckBox("Voz Rouca");
-		Voz_Rouca.setBounds(145, 276, 165, 23);
+		Voz_Rouca.setBounds(155, 276, 165, 23);
 		frame.getContentPane().add(Voz_Rouca);
 		
 		/*----------------------------------------------------------------------------------*/
