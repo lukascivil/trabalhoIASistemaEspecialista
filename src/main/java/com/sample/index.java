@@ -30,7 +30,6 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JTextArea;
 
-
 public class index {
 
 	public JFrame frame;
