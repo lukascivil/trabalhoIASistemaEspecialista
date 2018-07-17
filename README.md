@@ -1,5 +1,5 @@
 # Sistema Especialista
-What is my desease ? Qual a minha doença ?
+What is my disease ? Qual a minha doença ?
 
 Dependence / Dependencia 
 --------------------------------
